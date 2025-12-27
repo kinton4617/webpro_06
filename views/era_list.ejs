@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>時代一覧</title>
+    <style>
+        body {
+            font-family: "Helvetica Neue", Arial, sans-serif;
+            background-color: #e8f5e9;
+            color: #1b5e20;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2e7d32;
+        }
+
+        .header-nav {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            background: #2e7d32;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            margin: 0 5px;
+        }
+
+        .btn:hover {
+            background: #1b5e20;
+        }
+
+        .btn-gray {
+            background: #555;
+        }
+
+        table {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            border-collapse: separate;
+            border-spacing: 0;
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        th {
+            background: #4caf50;
+            color: white;
+            padding: 15px;
+        }
+
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #c8e6c9;
+            text-align: center;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover {
+            background-color: #f1f8e9;
+        }
+
+        .thumb {
+            width: 80px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>紀元前の時代一覧</h1>
+    <div class="header-nav">
+        <a href="/era/create" class="btn">＋ 時代の追加</a>
+        <a href="/" class="btn btn-gray">トップメニュー</a>
+    </div>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>画像</th>
+            <th>時代名</th>
+            <th>地域</th>
+            <th>期間</th>
+            <th>操作</th>
+        </tr>
+        <% data.forEach((item)=> { %>
+            <tr>
+                <td>
+                    <%= item.id %>
+                </td>
+                <td>
+                    <% if(item.image){ %><img src="<%= item.image %>" class="thumb">
+                        <% } %>
+                </td>
+                <td style="font-weight:bold;"><a href="/era/detail/<%= item.id %>" style="color:#1b5e20;">
+                        <%= item.name %>
+                    </a></td>
+                <td>
+                    <%= item.region %>
+                </td>
+                <td>
+                    <%= item.period %>
+                </td>
+                <td>
+                    <a href="/era/edit/<%= item.id %>">編集</a>
+                    <a href="/era/delete/<%= item.id %>">削除</a>
+                </td>
+            </tr>
+            <% }); %>
+    </table>
+</body>
+
+</html>

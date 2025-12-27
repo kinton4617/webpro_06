@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>
+        <%= data.name %> Detail
+    </title>
+    <style>
+        body {
+            font-family: "Segoe UI", Tahoma, sans-serif;
+            background-color: #e1f5fe;
+            color: #333;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 4px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #0277bd;
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .country {
+            color: #78909c;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .main-visual {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 30px;
+        }
+
+        .desc {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #37474f;
+            border-left: 5px solid #03a9f4;
+            padding-left: 15px;
+            margin-bottom: 30px;
+        }
+
+        .meta {
+            display: flex;
+            gap: 20px;
+            color: #555;
+            margin-bottom: 40px;
+        }
+
+        .btn-area {
+            text-align: center;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            color: white;
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        .btn-edit {
+            background: #039be5;
+        }
+
+        .btn-back {
+            background: #546e7a;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>
+            <%= data.name %>
+        </h1>
+        <div class="country">📍 <%= data.country %> / <%= data.type %>
+        </div>
+
+        <% if(data.image) { %>
+            <img src="<%= data.image %>" class="main-visual">
+            <% } %>
+
+                <div class="desc">
+                    <%= data.description %>
+                </div>
+
+                <div class="meta">
+                    <span>Database ID: <%= data.id %></span>
+                </div>
+
+                <div class="btn-area">
+                    <a href="/spot/edit/<%= data.id %>" class="btn btn-edit">EDIT DATA</a>
+                    <a href="/spot/list" class="btn btn-back">BACK TO LIST</a>
+                </div>
+    </div>
+</body>
+
+</html>

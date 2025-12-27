@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>時代の追加</title>
+    <style>
+        body {
+            font-family: "Helvetica Neue", Arial, sans-serif;
+            background-color: #e8f5e9;
+            color: #1b5e20;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 40px;
+            color: #2e7d32;
+        }
+
+        .register-card {
+            margin: 20px auto;
+            max-width: 640px;
+            background-color: #ffffff;
+            padding: 30px;
+            border: 1px solid #c8e6c9;
+            border-radius: 8px;
+        }
+
+        .form-field {
+            margin-bottom: 20px;
+        }
+
+        .field-title {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+            color: #2e7d32;
+        }
+
+        .tag-must {
+            background: #43a047;
+            color: #fff;
+            padding: 2px 6px;
+            font-size: 12px;
+            border-radius: 3px;
+            vertical-align: text-top;
+            margin-right: 5px;
+        }
+
+        .field-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        .field-input:focus {
+            border-color: #2e7d32;
+            outline: none;
+            box-shadow: 0 0 5px rgba(46, 125, 50, 0.3);
+        }
+
+        .action-button {
+            width: 100%;
+            padding: 12px;
+            background-color: #2e7d32;
+            color: white;
+            font-size: 18px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .action-button:hover {
+            background-color: #1b5e20;
+        }
+
+        .nav-link {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            color: #2e7d32;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>時代データの新規追加</h2>
+    <div class="register-card">
+        <form action="/era/add" method="POST">
+            <div class="form-field">
+                <label class="field-title"><span class="tag-must">必須</span>時代名</label>
+                <input type="text" name="name" class="field-input" placeholder="例）縄文時代" required>
+            </div>
+
+            <div class="form-field">
+                <label class="field-title"><span class="tag-must">必須</span>期間</label>
+                <input type="text" name="period" class="field-input" placeholder="例）BC14000 - BC300" required>
+            </div>
+
+            <div class="form-field">
+                <label class="field-title"><span class="tag-must">必須</span>地域</label>
+                <input type="text" name="region" class="field-input" placeholder="例）日本" required>
+            </div>
+
+            <div class="form-field">
+                <label class="field-title"><span class="tag-must">必須</span>特徴</label>
+                <input type="text" name="feature" class="field-input" placeholder="例）土器の使用" required>
+            </div>
+
+            <div class="form-field">
+                <label class="field-title">画像パス</label>
+                <input type="text" name="image" class="field-input" placeholder="/public/images/era/sample.jpg">
+            </div>
+
+            <input type="submit" class="action-button" value="登録">
+            <a href="/era/list" class="nav-link">キャンセルして戻る</a>
+        </form>
+    </div>
+</body>
+
+</html>

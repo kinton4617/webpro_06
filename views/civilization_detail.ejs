@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>
+        <%= data.name %> の詳細
+    </title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #f9f5f0;
+            color: #4a3b32;
+            padding: 20px;
+        }
+
+        .detail-card {
+            max-width: 600px;
+            margin: 20px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            color: #8b5a2b;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .main-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 4px solid #f1e3d3;
+        }
+
+        .info-list {
+            text-align: left;
+            margin: 20px auto;
+            display: inline-block;
+        }
+
+        .info-list li {
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .label {
+            font-weight: bold;
+            color: #8b5a2b;
+            margin-right: 10px;
+        }
+
+        .nav-links {
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+            margin: 0 5px;
+        }
+
+        .btn-edit {
+            background-color: #d84315;
+        }
+
+        .btn-back {
+            background-color: #8b5a2b;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="detail-card">
+        <h1>
+            <%= data.name %>
+        </h1>
+
+        <% if(data.image) { %>
+            <img src="<%= data.image %>" class="main-image">
+            <% } %>
+
+                <ul class="info-list">
+                    <li><span class="label">ID:</span>
+                        <%= data.id %>
+                    </li>
+                    <li><span class="label">成立場所:</span>
+                        <%= data.river %>
+                    </li>
+                    <li><span class="label">特徴:</span>
+                        <%= data.feature %>
+                    </li>
+                </ul>
+
+                <div class="nav-links">
+                    <a href="/civilization/edit/<%= data.id %>" class="btn btn-edit">編集する</a>
+                    <a href="/civilization/list" class="btn btn-back">一覧に戻る</a>
+                </div>
+    </div>
+</body>
+
+</html>

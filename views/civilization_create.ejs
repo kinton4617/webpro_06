@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>文明データの追加</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #f9f5f0;
+            color: #4a3b32;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 30px;
+            color: #8b5a2b;
+            border-bottom: 2px solid #8b5a2b;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .header-center {
+            text-align: center;
+        }
+
+        /* 独自デザインのフォーム */
+        .entry-form {
+            margin: 30px auto;
+            max-width: 600px;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .input-group {
+            margin-bottom: 25px;
+        }
+
+        .input-label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #5d4037;
+        }
+
+        .badge-required {
+            background-color: #d84315;
+            color: white;
+            font-size: 0.8em;
+            padding: 3px 8px;
+            border-radius: 4px;
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+
+        .text-input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            box-sizing: border-box;
+            /* パディングを含めて幅計算 */
+            transition: border-color 0.3s;
+        }
+
+        .text-input:focus {
+            border-color: #8b5a2b;
+            outline: none;
+        }
+
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #8b5a2b;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 40px;
+        }
+
+        .submit-btn:hover {
+            background-color: #6d4621;
+        }
+
+        .link-back {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #8b5a2b;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header-center">
+        <h2>文明データの新規登録</h2>
+    </div>
+
+    <form action="/civilization/add" method="POST" class="entry-form">
+        <div class="input-group">
+            <label class="input-label"><span class="badge-required">必須</span>文明名</label>
+            <input type="text" name="name" class="text-input" placeholder="例）メソポタミア文明" required>
+        </div>
+
+        <div class="input-group">
+            <label class="input-label"><span class="badge-required">必須</span>成立場所 (川)</label>
+            <input type="text" name="river" class="text-input" placeholder="例）チグリス・ユーフラテス川" required>
+        </div>
+
+        <div class="input-group">
+            <label class="input-label"><span class="badge-required">必須</span>特徴</label>
+            <input type="text" name="feature" class="text-input" placeholder="例）楔形文字" required>
+        </div>
+
+        <div class="input-group">
+            <label class="input-label">画像パス (任意)</label>
+            <input type="text" name="image" class="text-input" placeholder="/public/images/civilization/sample.jpg">
+        </div>
+
+        <input type="submit" class="submit-btn" value="登録する">
+        <a href="/civilization/list" class="link-back">一覧に戻る</a>
+    </form>
+</body>
+
+</html>

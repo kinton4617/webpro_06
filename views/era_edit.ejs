@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>編集: <%= data.name %>
+    </title>
+    <style>
+        body {
+            font-family: "Helvetica Neue", Arial, sans-serif;
+            background-color: #e8f5e9;
+            color: #1b5e20;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 40px;
+            color: #2e7d32;
+        }
+
+        .register-card {
+            margin: 20px auto;
+            max-width: 640px;
+            background-color: #ffffff;
+            padding: 30px;
+            border: 1px solid #c8e6c9;
+            border-radius: 8px;
+        }
+
+        .form-field {
+            margin-bottom: 20px;
+        }
+
+        .field-title {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+            color: #2e7d32;
+        }
+
+        .field-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        .field-input:focus {
+            border-color: #2e7d32;
+            outline: none;
+            box-shadow: 0 0 5px rgba(46, 125, 50, 0.3);
+        }
+
+        .action-button {
+            width: 100%;
+            padding: 12px;
+            background-color: #2e7d32;
+            color: white;
+            font-size: 18px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .action-button:hover {
+            background-color: #1b5e20;
+        }
+
+        .nav-link {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            color: #2e7d32;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>編集: <%= data.name %>
+    </h2>
+    <div class="register-card">
+        <form action="/era/update/<%= data.id %>" method="POST">
+            <div class="form-field">
+                <label class="field-title">時代名</label>
+                <input type="text" name="name" class="field-input" value="<%= data.name %>" required>
+            </div>
+            <div class="form-field">
+                <label class="field-title">期間</label>
+                <input type="text" name="period" class="field-input" value="<%= data.period %>" required>
+            </div>
+            <div class="form-field">
+                <label class="field-title">地域</label>
+                <input type="text" name="region" class="field-input" value="<%= data.region %>" required>
+            </div>
+            <div class="form-field">
+                <label class="field-title">特徴</label>
+                <input type="text" name="feature" class="field-input" value="<%= data.feature %>" required>
+            </div>
+            <div class="form-field">
+                <label class="field-title">画像パス</label>
+                <input type="text" name="image" class="field-input" value="<%= data.image %>">
+            </div>
+            <input type="submit" class="action-button" value="更新">
+            <a href="/era/list" class="nav-link">戻る</a>
+        </form>
+    </div>
+</body>
+
+</html>
